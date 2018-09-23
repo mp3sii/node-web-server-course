@@ -4,6 +4,7 @@ const fs = require('fs');
 const morgan = require('morgan');
 const path = require('path');
 const winston = require('winston');
+const port = process.env.PORT || 3000;
 
 
 let accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), {flags: 'a'});
@@ -52,4 +53,6 @@ app.get('/about', (req, res) => {
     })
 });
 console.log('http://localhost:3000/');
-app.listen(3000);
+app.listen(port, () => {
+    console.log(`Server is up on port ${port}`);
+});
