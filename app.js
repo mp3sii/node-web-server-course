@@ -49,10 +49,17 @@ app.get('/bad', (req, res) => {
 app.get('/about', (req, res) => {
     res.render('about.hbs', {
         pageTitle: 'About Page',
-        currentYear: new Date()
+        currentYear: new Date().getFullYear(),
     })
 });
-console.log('http://localhost:3000/');
+
+
+app.get('/projects', (req, res) => {
+    res.render('projects.hbs', {
+        pageTitle: 'Projects'
+    });
+});
+
 app.listen(port, () => {
     console.log(`Server is up on port ${port}`);
 });
